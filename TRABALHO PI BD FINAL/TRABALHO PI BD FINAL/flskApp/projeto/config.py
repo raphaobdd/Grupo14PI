@@ -1,0 +1,6 @@
+DB_CONFIG = {
+    'MYSQL_HOST': 'BD-ACD',
+    'MYSQL_USER': 'BD070324144',
+    'MYSQL_PASSWORD': 'Ywoix4',
+    'MYSQL_DB': 'BD070324144'
+}

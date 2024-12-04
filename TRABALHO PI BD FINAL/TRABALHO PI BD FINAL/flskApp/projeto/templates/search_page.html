@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome da Empresa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/search_page_styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Insira o Nome da Indústria</h1>
+        </div>
+    </header>
+
+    <section class="container">
+        <h2>Informe o nome da sua indústria</h2>
+        <form id="empresaForm" action="{{ url_for('busca') }}" method="POST" class="form-container">
+            <div class="form-group">
+                <label for="empresa">Nome da Indústria:</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Digite o nome da sua indústria" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Enviar</button>
+                <button type="button" class="btn" onclick="window.location.href = '/inserir'">Cadastrar nova indústria</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Monitoramento do Descarte de Resíduos Químicos Industrias</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/search_page_scripts.js') }}"></script>
+</body>
+</html>

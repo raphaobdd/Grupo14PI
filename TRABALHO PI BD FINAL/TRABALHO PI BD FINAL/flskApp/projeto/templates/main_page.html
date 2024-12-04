@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Indústrias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_page_styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Consulta de Indústrias Cadastradas</h1>
+        </div>
+    </header>
+
+    <section class="container">
+        {% if industrias %}
+            <div class="results-container">
+                {% for industria in industrias %}
+                    <div class="result-card">
+                        <h2>{{ industria.nome }}</h2>
+                        <div class="result-details">
+                            <p><strong>País de Sede:</strong> {{ industria.pais_sede }}</p>
+                            <p><strong>Faturamento Anual:</strong> R$ {{ "{:,.2f}".format(industria.faturamento_anual) }}</p>
+                            <p><strong>Número de Empregados:</strong> {{ industria.numero_empregados }}</p>
+                            
+                            {% if industria.emissoes %}
+                                <h3>Dados de Emissões</h3>
+                                <p><strong>Volume de Emissão:</strong> {{ industria.emissoes.volume_emissao }}</p>
+                                <p><strong>Ferramentas de Redução:</strong> {{ industria.emissoes.ferramentas_reducao or 'Não informado' }}</p>
+                                <p><strong>Tipo de Descarte:</strong> {{ industria.emissoes.tipo_descarte or 'Não informado' }}</p>
+                                <p><strong>Tipo de Descarte:</strong>
+                                <p><strong>Captação de Gases</strong>
+                                <p><strong>Reutilização de excedentes</strong>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-results">
+                <p>Nenhuma indústria cadastrada.</p>
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <button type="button" class="btn" onclick="window.location.href = '/inserir'">Cadastrar Nova Indústria</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Monitoramento do Descarte de Resíduos Químicos Industriais</p>
+        </div>
+    </footer>
+</body>
+</html>

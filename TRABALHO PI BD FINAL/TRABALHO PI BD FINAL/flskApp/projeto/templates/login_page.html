@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gestão de Resíduos Químicos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_page_styles.css') }}"> 
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login/" method="POST">
+            <div class="input-group">
+                <label for="usuario">Usuário</label>
+                <input type="text" name="user" id="user" placeholder="Digite seu nome de usuário" required>
+            </div>
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" name="password" id="password" placeholder="Digite sua senha" required>
+            </div>
+            <div>
+                <button type="submit" class="btn">Entrar</button>
+            </div>
+        </form>
+        <div>
+            <button type="button" class="btncd" onclick="window.location.href='/register/'">Cadastre-se</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/login_page_styles.js') }}"></script> 
+</body>
+</html>
